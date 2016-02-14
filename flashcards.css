@@ -1,0 +1,61 @@
+h1 {
+	font-family: impact;
+	font-size: 40px;
+	text-align: center;
+}
+
+body div div p {
+	font-family: monospace, impact;
+	font-size: 14px;
+	text-align: center;
+}
+
+.card {
+	background-image: url("notebook-paper.jpg");
+	width: 40%;
+	height: 350px;
+}
+
+.card p {
+	margin-top: 22px;
+}
+.ctrlBtn {
+	width: 100px;
+	height: 20px;
+	border-radius: 5px;
+	background-color: #94DE7C;
+	display: inline-block;
+	border: 3px solid #DE957C;
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-top: 15px;
+}
+
+.ctrlBtn p {
+	margin-top: 3px;
+}
+
+#front {
+	float: left;
+}
+
+#back {
+	float: right;
+}
+
+#controls {
+	background-color: #7CC5DE;
+	width: 100%;
+	height: 50px;
+	clear: both;
+}
+
+#app {
+	background-color: #7CC5DE;
+	width: 80%;
+	height: 450px;
+}
+
+body {
+	 background-color: #DCDDDE;
+ }
