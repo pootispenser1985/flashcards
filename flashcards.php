@@ -11,6 +11,14 @@ $question = "question";
   </head>
 
   <body>
+    <!-- get a conntection to my sqlite3 database of exam questions and answers going -->
+    <?php
+      $db = new SQLite3('db/flashcards.db');
+
+      if ($db != false) {
+        echo "success!";
+      }
+    ?>
     <div id="app">
       <div id="header">
         <h1>Flashcards</h1>
