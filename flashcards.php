@@ -15,9 +15,18 @@ $question = "question";
     <?php
       $db = new SQLite3('db/flashcards.db');
 
-      if ($db != false) {
-        echo "success!";
-      }
+
+
+
+      $cardIndex = 1;
+      $card = $db->query("SELECT * FROM flashcards WHERE cardIndex = ".$cardIndex);
+      $a = $card->fetcharray();
+      $cardIndex = $a[0];
+      $question = $a[1];
+      $answer = $a[2];
+
+    
+
     ?>
     <div id="app">
       <div id="header">
@@ -26,13 +35,15 @@ $question = "question";
 	your knowledge of computer hardware for CompTIA A+ Examination</p>
       </div>
 
+ instead of having two divs that i update the contents of, im gonna make a list and use next and prev
       <div id="front" class="card">
-        <?php echo "<p id=\"question\">".$question."</p>"; ?>
+        <p id="question"><?php echo $question; ?></p>
       </div>
 
       <div id="back" class="card">
-        <?php echo "<p id=\"answer\">".$answer."</p>"; ?>
+        <p id="answer"><?php echo $answer; ?></p>
       </div>
+
 
       <div id="controls">
         <div id="showCard" class="ctrlBtn">
@@ -47,6 +58,6 @@ $question = "question";
     </div>
 
   </body>
-  <script src="main.rb"></script>
+
   <script src="main.js"></script>
 </html>
