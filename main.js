@@ -3,5 +3,6 @@ $(document).ready(function() {
 
   $("#showCard").click(function() {
       $("#answer").show();
+      
   });
 });

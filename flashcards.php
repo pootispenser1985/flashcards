@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-$answer = "dickbutt";
 $question = "question";
+$answer = "dickbutt";
 ?>
 <html>
   <head>
@@ -11,23 +11,16 @@ $question = "question";
   </head>
 
   <body>
-    <!-- get a conntection to my sqlite3 database of exam questions and answers going -->
+
     <?php
       $db = new SQLite3('db/flashcards.db');
+      $result = $db->query("SELECT * FROM flashcards");
 
-
-
-
-      $cardIndex = 1;
-      $card = $db->query("SELECT * FROM flashcards WHERE cardIndex = ".$cardIndex);
-      $a = $card->fetcharray();
-      $cardIndex = $a[0];
-      $question = $a[1];
-      $answer = $a[2];
-
-    
-
+      $row = $result->fetcharray();
+      $question = $row[1];
+      $answer = $row[2];
     ?>
+
     <div id="app">
       <div id="header">
         <h1>Flashcards</h1>
@@ -35,7 +28,6 @@ $question = "question";
 	your knowledge of computer hardware for CompTIA A+ Examination</p>
       </div>
 
- instead of having two divs that i update the contents of, im gonna make a list and use next and prev
       <div id="front" class="card">
         <p id="question"><?php echo $question; ?></p>
       </div>
@@ -43,7 +35,6 @@ $question = "question";
       <div id="back" class="card">
         <p id="answer"><?php echo $answer; ?></p>
       </div>
-
 
       <div id="controls">
         <div id="showCard" class="ctrlBtn">
