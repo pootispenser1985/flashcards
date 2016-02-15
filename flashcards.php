@@ -15,8 +15,12 @@ $answer = "dickbutt";
     <?php
       $db = new SQLite3('db/flashcards.db');
       $result = $db->query("SELECT * FROM flashcards");
+      $countResult = $db->query("SELECT COUNT(*) FROM flashcards");
+      $numCards = $countResult->fetchArray();
+      $numCards = $numCards[0];
 
-      $row = $result->fetcharray();
+      echo $numCards;
+      $row = $result->fetchArray();
       $question = $row[1];
       $answer = $row[2];
     ?>
@@ -35,6 +39,8 @@ $answer = "dickbutt";
       <div id="back" class="card">
         <p id="answer"><?php echo $answer; ?></p>
       </div>
+
+
 
       <div id="controls">
         <div id="showCard" class="ctrlBtn">
